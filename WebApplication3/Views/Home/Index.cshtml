@@ -1,0 +1,34 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+<div class="text-left">
+    <h1 class="display-4">Examples</h1>
+    <div class="card" style="margin-top:2rem; width: 40rem">
+        <h3 class="display-8">Lifetime</h3>
+        <p>The lifetime of a service is how long the service instance will live in your application - from the original instantiation to disposal.</p>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item text-left"><strong>Singleton</strong> @ViewData["Singleton"]</li>
+            <li class="list-group-item text-left"><strong>Scoped</strong>  @ViewData["Scoped"]</li>
+            <li class="list-group-item text-left"><strong>Transient</strong> @ViewData["Transient"]</li>
+        </ul>
+        <h3 class="display-8">Registering Components</h3>
+        <p>How do I pick a service implementation by context?</p>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item text-left"><strong>Sent by Email</strong> @ViewData["SenderEmail"]</li>
+            <li class="list-group-item text-left"><strong>Sent by SMS</strong>  @ViewData["SenderSMS"]</li>
+            <li class="list-group-item text-left"><strong>Time of Sent</strong>  @ViewData["SenterTime"]</li>
+            <li class="list-group-item text-left"><strong>Id of Sent</strong>  @ViewData["SenterId"]</li>
+         </ul>
+        <h3 class="display-8">Instance Components</h3>
+        <p>Creation one instance by yourself and then each time inject type of instance you will get the same object</p>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item text-left"><strong>Time</strong> @ViewData["Time"]</li>
+            <li class="list-group-item text-left"><strong>Id</strong> @ViewData["Id"]</li>
+        </ul>
+    </div>
+</div>
