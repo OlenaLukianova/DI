@@ -12,9 +12,9 @@
         <h3 class="display-8">Lifetime</h3>
         <p>The lifetime of a service is how long the service instance will live in your application - from the original instantiation to disposal.</p>
         <ul class="list-group list-group-flush">
-            <li class="list-group-item text-left"><strong>Singleton</strong> @ViewData["Singleton"]</li>
-            <li class="list-group-item text-left"><strong>Scoped</strong>  @ViewData["Scoped"]</li>
-            <li class="list-group-item text-left"><strong>Transient</strong> @ViewData["Transient"]</li>
+            <li class="list-group-item text-left"><strong>Singleton</strong> @ViewData["Singleton"] <strong>new Instance</strong> @ViewData["SingletonInstance"]</li>
+            <li class="list-group-item text-left"><strong>Scoped</strong>  @ViewData["Scoped"] <strong>new Instance</strong>  @ViewData["ScopedInstance"]</li>
+            <li class="list-group-item text-left"><strong>Transient</strong> @ViewData["Transient"] <strong>new Instance</strong> @ViewData["TransientInstance"]</li>
         </ul>
         <h3 class="display-8">Registering Components</h3>
         <p>How do I pick a service implementation by context?</p>

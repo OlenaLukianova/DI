@@ -3,6 +3,7 @@ using Autofac.Core;
 using WebApplication3.Controllers;
 using WebApplication3.Models;
 using Autofac.Features.AttributeFilters;
+using Autofac.Integration.Mvc;
 
 namespace WebApplication3
 {
@@ -18,7 +19,8 @@ namespace WebApplication3
             builder.RegisterType<SmsSender>().Keyed<ISender>("senderSms");
             builder.RegisterType<SenterService>().WithAttributeFiltering();
 
-            builder.RegisterInstance(TimeService.Instance).ExternallyOwned();
+            var instance = new TimeService();
+            builder.RegisterInstance(instance);
         }
     }
 }

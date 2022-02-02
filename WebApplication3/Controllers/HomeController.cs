@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,7 @@ namespace WebApplication3.Controllers
         private readonly ITransient transient;
         private readonly SenterService senterService;
         private readonly TimeService timeService;
-       
+               
         public HomeController(ILogger<HomeController> logger,
                               ISinglton singlton,
                               IScoped scoped,
@@ -34,10 +35,17 @@ namespace WebApplication3.Controllers
         }
 
         public IActionResult Index()
-        {
+        { 
+            var singltonInstance = (ISinglton)ContainerProvider.Container.Services.GetService(typeof(ISinglton));
+            var scopedInstance = (IScoped)ContainerProvider.Container.Services.GetService(typeof(IScoped));
+            var transientInstance = (ITransient)ContainerProvider.Container.Services.GetService(typeof(ITransient));
+
             ViewData["Singleton"] = this.singlton.GetCounter();
+            ViewData["SingletonInstance"] = singltonInstance.GetCounter();
             ViewData["Scoped"] = this.scoped.GetCounter();
+            ViewData["ScopedInstance"] = scopedInstance.GetCounter();
             ViewData["Transient"] = this.transient.GetCounter();
+            ViewData["TransientInstance"] = transientInstance.GetCounter();
             ViewData["SenderSMS"] = this.senterService.SentBySms();
             ViewData["SenderEmail"] = this.senterService.SentByEmail();
             ViewData["SenterTime"] = this.senterService.GetTime();

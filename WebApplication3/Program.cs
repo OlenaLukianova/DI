@@ -14,9 +14,11 @@ namespace WebApplication3
     {
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args)
+            var container = CreateHostBuilder(args)
                 .UseServiceProviderFactory(new AutofacServiceProviderFactory())
-                .Build().Run();
+                .Build();
+            ContainerProvider.Container = container;
+            container.Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
